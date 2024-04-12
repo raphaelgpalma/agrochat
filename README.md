@@ -44,6 +44,22 @@ pip install -r requirements.txt
   touch .env
   ```
 
+5. Using Docker to create the reverse proxy server
+Ensure Docker is installed by referring to the Docker Installation Docs.
+Run the following command:
+
+```bash
+docker run -dp 3040:3040 pawanosman/chatgpt:latest
+```
+
+Done! You can now connect to your local server's API at:
+
+```bash
+http://localhost:3040/v1/chat/completions
+```
+
+Note that the base URL is http://localhost:3040/v1
+
  5. Add on your .env file:
 
   ```bash
