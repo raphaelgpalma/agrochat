@@ -63,7 +63,6 @@ Note that the base URL is http://localhost:3040/v1
  5. Add on your .env file:
 
   ```bash
-  OPENAI_API_KEY=<YOUR OPENAI API KEY>
   OPEN_WEATHER_API_KEY=<YOUR OPEN WEATHER API KEY>
   ```
 
