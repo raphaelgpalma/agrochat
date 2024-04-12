@@ -21,7 +21,8 @@ load_dotenv()
 
 
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = "anything"
+openai.base_url = "http://localhost:3040/v1/"
 OPEN_WEATHER_ENDPOINT = "http://api.openweathermap.org/data/2.5/weather"
 OPEN_WEATHER_API_KEY = os.getenv("OPEN_WEATHER_API_KEY")
 
@@ -127,7 +128,7 @@ def ask_open_weather_and_openai(city):
                     f"e a pressao é de {weather_data['pressao']} hPa."
                     f"e a velocidade do vento é de {weather_data['velocidade_vento']} km/h.")
 
-    response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": system_message},
@@ -153,7 +154,7 @@ def ask_open_weather_forecast_and_openai(city, date_solicited, hora_solicitada):
                     f"Temperatura - {first_forecast['temperatura']}°C, "
                     f"Umidade - {first_forecast['umidade']}%.")
 
-    response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": system_message},
@@ -165,7 +166,7 @@ def ask_open_weather_forecast_and_openai(city, date_solicited, hora_solicitada):
 
 
 def ask_gpt(message):
-    response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model="gpt-4",
         messages=[
             {"role": "system",
